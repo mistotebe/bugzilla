@@ -25,6 +25,10 @@ extends 'Bugzilla::API::1_0::Resource';
 # Constants  #
 ##############
 
+use constant READ_ONLY => qw(
+  get
+);
+
 use constant PUBLIC_METHODS => qw(
   create
   get
