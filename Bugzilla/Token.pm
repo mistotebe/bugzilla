@@ -476,7 +476,7 @@ sub set_token_extra_data {
   }
 
   Bugzilla->dbh->do(
-    "INSERT INTO token_data (token, extra_data) VALUES (?, ?) ON DUPLICATE KEY UPDATE extra_data = ?",
+    "INSERT INTO token_data (token, extra_data) VALUES (?, ?) ON CONFLICT (token) DO UPDATE SET extra_data = ?",
     undef, $token, $data, $data);
 }
 
