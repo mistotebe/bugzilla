@@ -84,6 +84,9 @@ sub parse_mail {
   if ($summary =~ /\[\S+ (\d+)\](.*)/i) {
     $fields{'bug_id'} = $1;
     $summary = trim($2);
+  } elsif ($summary =~ /\(ITS#(\d+)\)(.*)/i) {
+    $fields{'bug_id'} = $1;
+    $summary = trim($2);
   }
 
   # Ignore automatic replies.
